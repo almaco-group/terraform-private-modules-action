@@ -12,10 +12,10 @@ runs:
   steps:
     - name: Setup private repo credentials for private modules
       run: |
-        git config --global url."https://git:${{ inputs.token }}@github.com/${{ inputs.org }}".insteadOf "https://github.com/${{ inputs.org }}"
+        git config --global url."https://${{ inputs.token }}@github.com/${{ inputs.org }}".insteadOf "https://github.com/${{ inputs.org }}"
         git config --global url."https://${{ inputs.token }}@github.com/${{ inputs.org }}".insteadOf "git::https://github.com/${{ inputs.org }}"
-        git config --global url."https://${{ inputs.token }}:x-oauth-basic@github.com/${{ inputs.org }}".insteadOf "ssh://git@github.com/${{ inputs.org }}"
-        git config --global url."https://${{ inputs.token }}:x-oauth-basic@github.com/${{ inputs.org }}".insteadOf "ssh://git@github.com:${{ inputs.org }}"
-        git config --global url."https://oauth2:${{ inputs.token }}@github.com/${{ inputs.org }}".insteadOf "git@github.com:${{ inputs.org }}"
-        git config --global url."https://oauth2:${{ inputs.token }}@github.com/${{ inputs.org }}".insteadOf "git::git@github.com:${{ inputs.org }}"
+        git config --global url."https://${{ inputs.token }}@github.com/${{ inputs.org }}".insteadOf "ssh://git@github.com/${{ inputs.org }}"
+        git config --global url."https://${{ inputs.token }}@github.com/${{ inputs.org }}".insteadOf "ssh://git@github.com:${{ inputs.org }}"
+        git config --global url."https://${{ inputs.token }}@github.com/${{ inputs.org }}".insteadOf "git@github.com:${{ inputs.org }}"
+        git config --global url."https://${{ inputs.token }}@github.com/${{ inputs.org }}".insteadOf "git::git@github.com:${{ inputs.org }}"
       shell: sh
