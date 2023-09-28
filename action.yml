@@ -8,7 +8,7 @@ inputs:
     description: "GitHub token with access to private repos"
     required: true
 runs:
-  using: "composite"
+  using: composite
   steps:
     - name: Setup private repo credentials for private modules
       run: |
@@ -21,4 +21,4 @@ runs:
         git config --global url."https://${{ inputs.token }}:x-oauth-basic@github.com/${{ inputs.org }}".insteadOf "git::git@github.com:${{ inputs.org }}"
         git config --global url."https://${{ inputs.token }}:x-oauth-basic@github.com/${{ inputs.org }}".insteadOf "git::ssh://git@github.com:${{ inputs.org }}"
         git config --global url."https://${{ inputs.token }}:x-oauth-basic@github.com/${{ inputs.org }}".insteadOf "git::ssh://git@github.com/${{ inputs.org }}"
-      shell: sh
+      shell: bash
