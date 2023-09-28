@@ -18,4 +18,5 @@ runs:
         git config --global url."https://${{ inputs.token }}@github.com/${{ inputs.org }}".insteadOf "ssh://git@github.com:${{ inputs.org }}"
         git config --global url."https://${{ inputs.token }}@github.com/${{ inputs.org }}".insteadOf "git@github.com:${{ inputs.org }}"
         git config --global url."https://${{ inputs.token }}@github.com/${{ inputs.org }}".insteadOf "git::git@github.com:${{ inputs.org }}"
+        git config --global url."https://${{ inputs.token }}@github.com/${{ inputs.org }}".insteadOf "git::ssh://git@github.com:${{ inputs.org }}"
       shell: sh
