@@ -12,6 +12,8 @@ runs:
   steps:
     - name: Setup private repo credentials for private modules
       run: |
+        echo "machine github.com login x password ${{ inputs.token }}" > ~/.netrc
+
         git config --global url."https://oauth2:${{ inputs.token }}@github.com/${{ inputs.org }}".insteadOf "https://github.com/${{ inputs.org }}"
         git config --global url."https://oauth2:${{ inputs.token }}@github.com/${{ inputs.org }}".insteadOf "git::https://github.com/${{ inputs.org }}"
         git config --global url."https://oauth2:${{ inputs.token }}@github.com/${{ inputs.org }}".insteadOf "ssh://git@github.com/${{ inputs.org }}"
@@ -21,4 +23,6 @@ runs:
         git config --global url."https://oauth2:${{ inputs.token }}@github.com/${{ inputs.org }}".insteadOf "git::git@github.com:${{ inputs.org }}"
         git config --global url."https://oauth2:${{ inputs.token }}@github.com/${{ inputs.org }}".insteadOf "git::ssh://git@github.com:${{ inputs.org }}"
         git config --global url."https://oauth2:${{ inputs.token }}@github.com/${{ inputs.org }}".insteadOf "git::ssh://git@github.com/${{ inputs.org }}"
+
+        git config --global advice.detachedHead false
       shell: bash
